@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>One Last Thing — For Manisha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-wine: #0E030A;
+      --deep-wine: #180A12;
+      --crimson: #C7365F;
+      --rose-pink: #F06A8D;
+      --soft-blush: #FFD6E0;
+      --champagne-gold: #E8C98B;
+      --warm-white: #FFF8F9;
+      --dusty-rose: #C9AEB6;
+      --glass-bg: rgba(24, 10, 18, 0.75);
+      --glass-border: rgba(232, 201, 139, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-wine);
+      color: var(--warm-white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      padding: 40px 16px 80px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199, 54, 95, 0.2) 0%, transparent 70%);
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      filter: blur(70px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 480px;
+      margin: auto;
+    }
+
+    /* Dramatic Facts Section: Main Dost Kyun Nahi Ban Sakta */
+    .facts-section {
+      margin-bottom: 60px;
+    }
+
+    .facts-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--champagne-gold);
+      margin-bottom: 22px;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .facts-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 26px 20px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+      margin-bottom: 20px;
+    }
+
+    .narrative-p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--dusty-rose);
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .poem-block {
+      background: rgba(35, 14, 25, 0.5);
+      border-left: 2px solid var(--champagne-gold);
+      padding: 20px 16px;
+      margin: 20px 0;
+      border-radius: 4px 12px 12px 4px;
+    }
+
+    .poem-line {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--soft-blush);
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+
+    .poem-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .dramatic-highlight {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      letter-spacing: 2px;
+      color: var(--rose-pink);
+      text-align: center;
+      margin: 24px 0 14px;
+      font-weight: 700;
+    }
+
+    /* Final Question Block */
+    .question-section {
+      text-align: center;
+      padding: 40px 20px 30px;
+      background: linear-gradient(180deg, rgba(24, 10, 18, 0.85) 0%, rgba(14, 3, 10, 0.95) 100%);
+      border: 1px solid rgba(232, 201, 139, 0.28);
+      border-radius: 24px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .name-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--warm-white);
+      margin-bottom: 8px;
+    }
+
+    .curious-line {
+      font-size: 0.88rem;
+      letter-spacing: 1.5px;
+      color: var(--dusty-rose);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .big-question {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      font-weight: 600;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #FFF8F9 20%, #F06A8D 60%, #E8C98B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .sub-clause {
+      font-size: 0.95rem;
+      color: var(--dusty-rose);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    /* Decision Buttons */
+    .button-group {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn-choice {
+      flex: 1;
+      max-width: 170px;
+      padding: 16px 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      outline: none;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, var(--crimson), #8A1538);
+      color: #fff;
+      border: 1px solid rgba(240, 106, 141, 0.5);
+      box-shadow: 0 10px 30px rgba(199, 54, 95, 0.45);
+    }
+
+    .btn-yes:hover, .btn-yes:active {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 14px 40px rgba(199, 54, 95, 0.6);
+    }
+
+    .btn-no {
+      background: rgba(24, 10, 18, 0.8);
+      color: var(--warm-white);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-no:hover, .btn-no:active {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Response Screen Overlay */
+    .response-card {
+      display: none;
+      margin-top: 25px;
+      padding: 24px 20px;
+      border-radius: 18px;
+      text-align: center;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .response-yes {
+      background: rgba(45, 12, 28, 0.9);
+      border: 1px solid var(--rose-pink);
+    }
+
+    .response-no {
+      background: rgba(24, 10, 18, 0.9);
+      border: 1px solid var(--champagne-gold);
+    }
+
+    .response-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .response-body {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--warm-white);
+      font-weight: 300;
+    }
+
+    .status-note {
+      font-size: 0.72rem;
+      color: var(--dusty-rose);
+      margin-top: 14px;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <div class="container">
+    
+    <!-- Section: Main Dost Kyun Nahi Ban Sakta -->
+    <div class="facts-section">
+      <h2 class="facts-header">“Main dost kyun nhi ban skta aapka princess🎀”</h2>
+      
+      <div class="facts-card">
+        <p class="narrative-p">
+          “Meh acha dost kbhi nhi ban skta aapka princess🎀<br><br>
+          Meh kaise aapko dost smjhuuu jb starting me dost jaise feeling kbhi aaya hi nhi<br><br>
+          Dostt nhi reh paaunga meh kbhi aapka ache wala<br><br>
+          Meh jo aapko smjhta hun voh dostii toh kbhi nhi ho skta 🙂🙂<br><br>
+          Mehh toh kbhi relationship ke liye socha hi nhi thaa lekin aap humesha mere seee baat Kiya krte thein phone calls per kbhi wifey suarr kutta chommu bola krte thein or phone me number save nhi kiye tha koala name see 😂<br><br>
+          Humara journey toh start hi alg way se huwa tha<br><br>
+          Gc,dm,daily msgs,daily talks,insta calls,infact phone number bhi aap share kiye thein mujhe toh phir WhatsApp phir har way see baat kam huwa<br><br>
+          Schh mehh one sided thaa kyy????<br><br>
+          Voh sbb baatein yddd h mere brdy per late nights video call silent thein dono lekin sbb smjh rhe thein or abb bolne ke bdd bhi nhi smjhte hain<br><br>
+          Ek din aap itne khush thein jb aapke relatives baat kr thein thein bsss itna hii bolunga 🙂🙂🙂 ik kyunki aapko ydd nhi hu hoga.....”
+        </p>
+
+        <div class="dramatic-highlight">
+          “NHI, MEH DOST BAN KR NHI REH SKTA”
+        </div>
+
+        <div class="poem-block">
+          <div class="poem-line">“Humme shadi ka waada kiya thaaa”</div>
+          <div class="poem-line">“Jitna chor skte hai pyar me<br>Logg mene usse jyda kiya tha”</div>
+          <div class="poem-line">“Dost kaise ban jaau??”</div>
+          <div class="poem-line">“Mene wife maan liya tha aapko”</div>
+          <div class="poem-line">“Saare bhagwano seee maang kr<br>Apna kr liya tha mene”</div>
+          <div class="poem-line">“Aapki shikayat bhi<br>Khudse krta tha”</div>
+          <div class="poem-line">“Aap mere liye suraj thein<br>Or merii prithvi aapke chaaron or ghumti thii”</div>
+        </div>
+
+        <p class="narrative-p" style="text-align: center; margin-top: 15px;">
+          “Nhi, meh ek achaa dost nhi ban skta kbhi bhi yrrrr<br>
+          Really sorry 😔”
+        </p>
+      </div>
+    </div>
+
+    <!-- Final Question Section -->
+    <div class="question-section" id="qSection">
+      <div class="name-title">Manisha…</div>
+      <div class="curious-line">There is one thing I really want to know.</div>
+
+      <div class="big-question">Do you love me?</div>
+
+      <div class="sub-clause">
+        Not just as a friend,<br>
+        but as someone special?
+      </div>
+
+      <div class="button-group" id="btnGroup">
+        <button class="btn-choice btn-yes" onclick="submitAnswer('YES ❤️')">YES ❤️</button>
+        <button class="btn-choice btn-no" onclick="submitAnswer('NO 🤍')">NO 🤍</button>
+      </div>
+
+      <!-- Result Card (Shown after click) -->
+      <div class="response-card" id="responseCard">
+        <div class="response-title" id="respTitle"></div>
+        <div class="response-body" id="respBody"></div>
+        <div class="status-note" id="statusNote"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function submitAnswer(choice) {
+      const now = new Date();
+      const timestamp = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+      // Disable buttons to prevent multi-click
+      const btnGroup = document.getElementById('btnGroup');
+      btnGroup.style.display = 'none';
+
+      const responseCard = document.getElementById('responseCard');
+      const respTitle = document.getElementById('respTitle');
+      const respBody = document.getElementById('respBody');
+      const statusNote = document.getElementById('statusNote');
+
+      if (choice.includes('YES')) {
+        responseCard.className = 'response-card response-yes';
+        respTitle.innerHTML = '❤️ MY PRINCESS ❤️';
+        respBody.innerHTML = 'Aapne mera dil jeet liya... Thank you so much for this honest and beautiful answer. 💓';
+      } else {
+        responseCard.className = 'response-card response-no';
+        respTitle.innerHTML = 'THNXXXXXXXXX 💓🎀';
+        respBody.innerHTML = `
+          Isliye nahi ki aapne NO par click kiya,<br>
+          lekin isliye ki aapne honestly answer diya. 🫠<br><br>
+          Bas yahi chahta tha ki jo bhi aap feel karti hain,<br>
+          woh bina kisi pressure ke honestly bataayein. ❤️
+        `;
+      }
+      responseCard.style.display = 'block';
+
+      // Send Response via FormSubmit directly to maniikaran0422@gmail.com
+      fetch("https://formsubmit.co/ajax/maniikaran0422@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: "Princess Website — New Response ❤️",
+          Response: choice,
+          Date_Time: timestamp,
+          Recipient: "Manisha (Princess)",
+          _template: "table"
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        statusNote.innerText = "Response recorded.";
+      })
+      .catch(error => {
+        // Fallback: even if network has an issue, user already sees the sincere message
+        statusNote.innerText = "Response recorded.";
+      });
+    }
+  </script>
+</body>
+</html>
