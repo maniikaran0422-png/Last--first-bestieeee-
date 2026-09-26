@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Our Beginning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-wine: #12060E;
+      --deep-wine: #180A12;
+      --crimson: #C7365F;
+      --rose-pink: #F06A8D;
+      --soft-blush: #FFD6E0;
+      --champagne-gold: #E8C98B;
+      --warm-white: #FFF8F9;
+      --dusty-rose: #C9AEB6;
+      --glass-bg: rgba(28, 12, 22, 0.65);
+      --glass-border: rgba(232, 201, 139, 0.22);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-wine);
+      color: var(--warm-white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199, 54, 95, 0.16) 0%, transparent 70%);
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 440px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 5px;
+      color: var(--champagne-gold);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    }
+
+    /* Glass Card */
+    .beginning-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 38px 24px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 214, 224, 0.1);
+      position: relative;
+      opacity: 0;
+      transform: translateY(25px);
+      animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    }
+
+    .card-corner {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: var(--champagne-gold);
+      opacity: 0.4;
+    }
+    .top-left { top: 12px; left: 12px; border-top: 1px solid; border-left: 1px solid; }
+    .bottom-right { bottom: 12px; right: 12px; border-bottom: 1px solid; border-right: 1px solid; }
+
+    .date-row {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      letter-spacing: 3px;
+      color: var(--soft-blush);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .time-row {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      color: var(--champagne-gold);
+      text-transform: uppercase;
+      margin-bottom: 26px;
+      font-weight: 500;
+    }
+
+    .card-divider {
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rose-pink), transparent);
+      margin: 0 auto 28px;
+    }
+
+    .main-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--warm-white);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .main-heading span {
+      display: block;
+      color: var(--rose-pink);
+    }
+
+    .personal-feeling {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--dusty-rose);
+      font-weight: 300;
+      text-align: center;
+      padding: 0 4px;
+    }
+
+    .personal-feeling strong {
+      color: var(--champagne-gold);
+      font-weight: 500;
+    }
+
+    /* Button */
+    .btn-continue {
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 36px;
+      padding: 15px 42px;
+      background: linear-gradient(135deg, rgba(199, 54, 95, 0.3), rgba(24, 10, 18, 0.7));
+      color: var(--champagne-gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      font-weight: 600;
+      border: 1px solid var(--glass-border);
+      border-radius: 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+    }
+
+    .btn-continue:hover, .btn-continue:active {
+      border-color: var(--champagne-gold);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(199, 54, 95, 0.35);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <div class="container">
+    <div class="section-badge">OUR BEGINNING</div>
+
+    <div class="beginning-card">
+      <div class="card-corner top-left"></div>
+      <div class="card-corner bottom-right"></div>
+
+      <div class="date-row">02 AUGUST 2025</div>
+      <div class="time-row">10:42 PM</div>
+
+      <div class="card-divider"></div>
+
+      <div class="main-heading">
+        “It started
+        <span>with a conversation.”</span>
+      </div>
+
+      <p class="personal-feeling">
+        <strong>10:42 PM.</strong><br>
+        Ek normal si beginning thi...<br>
+        lekin pata nahi tha ki yeh conversation meri life ka itna important part ban jayegi.
+      </p>
+    </div>
+
+    <a href="Part3.html" class="btn-continue">
+      CONTINUE
+    </a>
+  </div>
+
+</body>
+</html>
