@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Axchiii Or Pyariii Baateinnn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-wine: #12060E;
+      --deep-wine: #180A12;
+      --crimson: #C7365F;
+      --rose-pink: #F06A8D;
+      --soft-blush: #FFD6E0;
+      --champagne-gold: #E8C98B;
+      --warm-white: #FFF8F9;
+      --dusty-rose: #C9AEB6;
+      --glass-bg: rgba(24, 10, 18, 0.72);
+      --glass-border: rgba(232, 201, 139, 0.18);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-wine);
+      color: var(--warm-white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      padding: 40px 16px 60px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199, 54, 95, 0.14) 0%, transparent 70%);
+      top: 10%;
+      right: -100px;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 480px;
+      margin: auto;
+    }
+
+    .header-area {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 4.5px;
+      color: var(--champagne-gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--soft-blush);
+      line-height: 1.35;
+    }
+
+    .divider-gold {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent);
+      margin: 16px auto 0;
+    }
+
+    /* Cards Stack */
+    .memories-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .memory-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      backdrop-filter: blur(14px);
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .memory-card:hover {
+      border-color: rgba(240, 106, 141, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .memory-number {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: var(--champagne-gold);
+      margin-bottom: 8px;
+      opacity: 0.8;
+    }
+
+    .memory-text {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--warm-white);
+      font-weight: 400;
+    }
+
+    /* Reflective Narrative Blocks */
+    .narrative-section {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 44px;
+    }
+
+    .thought-card {
+      background: rgba(24, 10, 18, 0.55);
+      border-left: 2px solid var(--rose-pink);
+      border-radius: 4px 14px 14px 4px;
+      padding: 18px 20px;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--dusty-rose);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .thought-card strong {
+      color: var(--soft-blush);
+      font-weight: 500;
+    }
+
+    /* Golden Things Section */
+    .golden-box {
+      background: linear-gradient(145deg, rgba(35, 14, 25, 0.8), rgba(24, 10, 18, 0.9));
+      border: 1px solid rgba(232, 201, 139, 0.35);
+      border-radius: 20px;
+      padding: 28px 22px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(232, 201, 139, 0.08);
+      margin-bottom: 44px;
+      position: relative;
+    }
+
+    .golden-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      color: var(--champagne-gold);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .golden-text {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--warm-white);
+      font-weight: 300;
+    }
+
+    .btn-wrap {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .btn-next {
+      display: inline-block;
+      text-decoration: none;
+      padding: 15px 42px;
+      background: linear-gradient(135deg, rgba(199, 54, 95, 0.3), rgba(24, 10, 18, 0.7));
+      color: var(--champagne-gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      font-weight: 600;
+      border: 1px solid var(--glass-border);
+      border-radius: 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-next:hover, .btn-next:active {
+      border-color: var(--champagne-gold);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <div class="container">
+    <div class="header-area">
+      <div class="section-badge">MEMORIES & MOMENTS</div>
+      <h1 class="page-title">“Hum dono kiii axchiii or pyariii baateinnn”</h1>
+      <div class="divider-gold"></div>
+    </div>
+
+    <!-- 8 Special Points -->
+    <div class="memories-list">
+      <div class="memory-card">
+        <div class="memory-number">01</div>
+        <div class="memory-text">“Sbse achii baat toh yhi h ki apan dono best friend haiii”</div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-number">02</div>
+        <div class="memory-text">“Humesha ek-dusre ko smjhnaaa”</div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-number">03</div>
+        <div class="memory-text">“Kbhi Zyda der tak gussa nhi rehnaaa”</div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-number">04</div>
+        <div class="memory-text">“CARE KRNAAA EK DUSRE KAAA”</div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-number">05</div>
+        <div class="memory-text">“HELP KRNAA”</div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-number">06</div>
+        <div class="memory-text">“KBHI bhi kuch bhi ek dusre see koi bhi baat ko nhh hide Krna sbb btana”</div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-number">07</div>
+        <div class="memory-text">“Ek dusre ko nicknames dena”</div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-number">08</div>
+        <div class="memory-text">“Ummmm speca8toh bhaut kuch h mere pass Btane ke liyee princesss like late nights video calls, phots, videos..”</div>
+      </div>
+    </div>
+
+    <!-- Personal Timeline / Deep Realizations -->
+    <div class="narrative-section">
+      <div class="thought-card">
+        “Phele aap insta me meri I'd ko kbhi sweetheart,mine pookie,my boy,or pvtttt sweetheart yeh last nickname jo aap mujhe diye theinnn sch btau toh yrrr meh aapko humesha bolta hun ki past acha tha or aapko lgta h meh purre past ki baat kr rha lekin nhi mera liiye meri life ka part vhin acha thaaa”
+      </div>
+
+      <div class="thought-card">
+        “02august 2025 se 19julyy2026 sach btye princess mujhe sch me vhin sbb opd chiye thaaa perr jabardasti nhiii aap jo phele theinnn wese hi rehte kaash”
+      </div>
+
+      <div class="thought-card">
+        “Perr meh nhi cahata ki meri princess 💓 meri wajah se change ho aap shin bolte ho kii purane baate leke baithne see kuch nhi hotta hai”
+      </div>
+
+      <div class="thought-card">
+        “Or voh sbb bhii kii kuch chance nhi hai yk Kbhi kbhi smjh nhi aataa hain kii aakhir sach kya hai jo aap abb bolte ho ya jo phele promises krte thein.........”
+      </div>
+
+      <div class="thought-card">
+        “Umm sch meh bhaut kuch likhna chahata hun but nhi likh skta kyunkiii jb bhi mujhe old chats,old vibe yaad aata hain toh 1sy question yhi hota hai kii hum dono ke relationship meh jaane se dosti kese khrab hoga?”
+      </div>
+
+      <div class="thought-card">
+        “Or mehh humesha aapko bolta bhi hun kii mujhe aap dost bhi chloge lekin khud se question hota h sach meh??”
+      </div>
+    </div>
+
+    <!-- Golden Things -->
+    <div class="golden-box">
+      <div class="golden-badge">✨ GOLDEN THINGS ✨</div>
+      <div class="golden-text">
+        “Avni_singh4532 💓💓💓💓💓💓💓💓💓💓 sch btau toh yehhh jo I'd thii sch me achii thii bcz hum dono ka late nights baata calls msgs voice calls recording ek dusre ko pure din ke baare batana 
+        Ummmm vohh sbb share Krna jo abb hum dono nhi krte 🙂 I know kii glti aapki bhi nhi or mera bhi nhi bss situation hi aisee ho jaate h kii kuch share nhi krtee butt jo bhi hai mujhe toh vhin din humesha se chiye thein jo phele theinnn aapko toh kuch ydd bhi nhi or naa kuch kbhi krte ho ydd maybee kisi din aap bhi kroge yddd last hopee🎀 jo bhi h Ydaa kuch nhi bolunga ek hint detaa hunnn jan-feb mehh hum dono ne ek promise Kiya tha idk aapko yaad h ya nhi but mujhe yadd hai..........”
+      </div>
+    </div>
+
+    <div class="btn-wrap">
+      <a href="Part4.html" class="btn-next">CONTINUE →</a>
+    </div>
+  </div>
+
+</body>
+</html>
