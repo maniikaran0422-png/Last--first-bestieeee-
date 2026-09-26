@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>For My Princess</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-wine: #12060E;
+      --deep-wine: #180A12;
+      --crimson: #C7365F;
+      --rose-pink: #F06A8D;
+      --soft-blush: #FFD6E0;
+      --champagne-gold: #E8C98B;
+      --warm-white: #FFF8F9;
+      --dusty-rose: #C9AEB6;
+      --glass-bg: rgba(24, 10, 18, 0.7);
+      --glass-border: rgba(232, 201, 139, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-wine);
+      color: var(--warm-white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Ambient Canvas */
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Subtle Radial Glows */
+    .glow-sphere {
+      position: fixed;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199, 54, 95, 0.18) 0%, rgba(24, 10, 18, 0) 70%);
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+      animation: floatPulse 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatPulse {
+      0% { transform: scale(0.9) translate(-20px, -20px); opacity: 0.5; }
+      100% { transform: scale(1.15) translate(20px, 30px); opacity: 0.85; }
+    }
+
+    /* Main Container */
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 480px;
+      text-align: center;
+      padding: 40px 24px;
+      margin: auto;
+    }
+
+    .badge-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 5px;
+      color: var(--champagne-gold);
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+
+    .badge-tag::before, .badge-tag::after {
+      content: "—";
+      margin: 0 8px;
+      opacity: 0.6;
+    }
+
+    .title-group {
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    }
+
+    .main-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: 2px;
+      color: var(--warm-white);
+    }
+
+    .princess-word {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 3.4rem;
+      display: block;
+      background: linear-gradient(135deg, #FFF8F9 20%, #F06A8D 60%, #E8C98B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 6px;
+      text-shadow: 0 10px 30px rgba(199, 54, 95, 0.3);
+    }
+
+    .divider {
+      width: 45px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent);
+      margin: 24px auto;
+      opacity: 0.7;
+    }
+
+    .sub-quote {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--dusty-rose);
+      font-style: italic;
+      margin-bottom: 44px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+    }
+
+    /* Cinematic Button */
+    .btn-enter {
+      display: inline-block;
+      text-decoration: none;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, rgba(199, 54, 95, 0.25), rgba(24, 10, 18, 0.6));
+      color: var(--champagne-gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 3.5px;
+      font-weight: 600;
+      border: 1px solid var(--glass-border);
+      border-radius: 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 0 16px rgba(232, 201, 139, 0.1);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+    }
+
+    .btn-enter:hover, .btn-enter:active {
+      border-color: var(--champagne-gold);
+      box-shadow: 0 10px 40px rgba(199, 54, 95, 0.4), inset 0 0 20px rgba(232, 201, 139, 0.25);
+      transform: translateY(-2px) scale(1.02);
+      color: #fff;
+    }
+
+    .sound-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+      background: rgba(24, 10, 18, 0.6);
+      border: 1px solid rgba(232, 201, 139, 0.2);
+      color: var(--champagne-gold);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      font-size: 13px;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-sphere"></div>
+  <canvas id="particles"></canvas>
+
+  <button class="sound-toggle" id="audioBtn" title="Ambient Sound">♪</button>
+
+  <div class="container">
+    <div class="badge-tag">FOR MY PRINCESS</div>
+    
+    <div class="title-group">
+      <div class="main-title">My</div>
+      <div class="princess-word">Princess</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="sub-quote">
+      “A little place I made for someone who became very special to me.”
+    </p>
+
+    <a href="Part2.html" class="btn-enter">
+      ENTER MY HEART
+    </a>
+  </div>
+
+  <script>
+    // Particle Canvas Animation
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let width, height, particles = [];
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 1.8 + 0.4;
+        this.speedY = -(Math.random() * 0.4 + 0.15);
+        this.speedX = (Math.random() - 0.5) * 0.2;
+        this.opacity = Math.random() * 0.5 + 0.2;
+        this.fade = Math.random() * 0.006 + 0.003;
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        this.opacity -= this.fade;
+        if (this.opacity <= 0 || this.y < 0) {
+          this.reset();
+          this.y = height + 10;
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(232, 201, 139, ${this.opacity})`;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = "rgba(240, 106, 141, 0.5)";
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 45; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Soft Ambient Synthesizer
+    let audioCtx = null;
+    let isPlaying = false;
+    let osc1, osc2, gainNode;
+
+    const btn = document.getElementById('audioBtn');
+    btn.addEventListener('click', () => {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        gainNode = audioCtx.createGain();
+        gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gainNode.connect(audioCtx.destination);
+
+        osc1 = audioCtx.createOscillator();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(220, audioCtx.currentTime); // A3
+
+        osc2 = audioCtx.createOscillator();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(329.63, audioCtx.currentTime); // E4
+
+        osc1.connect(gainNode);
+        osc2.connect(gainNode);
+
+        osc1.start();
+        osc2.start();
+        isPlaying = true;
+        btn.style.color = '#F06A8D';
+      } else {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+          isPlaying = true;
+          btn.style.color = '#F06A8D';
+        } else if (audioCtx.state === 'running') {
+          audioCtx.suspend();
+          isPlaying = false;
+          btn.style.color = '#E8C98B';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
