@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>A Message For You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-wine: #12060E;
+      --deep-wine: #180A12;
+      --crimson: #C7365F;
+      --rose-pink: #F06A8D;
+      --soft-blush: #FFD6E0;
+      --champagne-gold: #E8C98B;
+      --warm-white: #FFF8F9;
+      --dusty-rose: #C9AEB6;
+      --glass-bg: rgba(24, 10, 18, 0.72);
+      --glass-border: rgba(232, 201, 139, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-wine);
+      color: var(--warm-white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      padding: 40px 16px 60px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199, 54, 95, 0.16) 0%, transparent 70%);
+      top: 15%;
+      left: -80px;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 460px;
+      margin: auto;
+    }
+
+    .header-area {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .page-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--soft-blush);
+      line-height: 1.3;
+    }
+
+    .divider-gold {
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent);
+      margin: 16px auto 0;
+    }
+
+    /* Message Glass Card */
+    .message-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 30px 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      margin-bottom: 28px;
+    }
+
+    .paragraph {
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: var(--warm-white);
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .paragraph:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-comfort {
+      background: rgba(35, 14, 25, 0.65);
+      border: 1px solid rgba(240, 106, 141, 0.3);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--soft-blush);
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+
+    /* Button */
+    .btn-wrap {
+      text-align: center;
+    }
+
+    .btn-next {
+      display: inline-block;
+      text-decoration: none;
+      padding: 16px 38px;
+      background: linear-gradient(135deg, rgba(199, 54, 95, 0.35), rgba(24, 10, 18, 0.7));
+      color: var(--champagne-gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      font-weight: 600;
+      border: 1px solid var(--glass-border);
+      border-radius: 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-next:hover, .btn-next:active {
+      border-color: var(--champagne-gold);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <div class="container">
+    <div class="header-area">
+      <h1 class="page-heading">
+        “Hmmmmm waiseee<br>pgliiii...”
+      </h1>
+      <div class="divider-gold"></div>
+    </div>
+
+    <div class="message-card">
+      <p class="paragraph">
+        “Hmmmmm waiseee pgliiii reply nhh honestly denaa do you love me not as friend ik yeh question aapko bhaut hurt krne wala hai butt idk kyun yrrr meh yeh website banaya sach btau toh meh aapko aapke brdy ke din hi sbb bolna chahta tha lekin ankit,ghr ka problems study tension yehh sbb ki wajah see mene bhaut zldi old wala website ready krke aapko diya tha but real me toh meh birthday+purpose wala website hi bana rha tha so srry 🎀 hurt krne ke liyee”
+      </p>
+      
+      <p class="paragraph">
+        “Sch btauu toh ik kii aapko bhaut zyda hurt hoga but meh sorry bhi nhi bol skta kyunkii hurt krne ke bdd sorry bolna formality feels dega isliye lekin meh husmsha ki tarah aapko manane ka try krunga jb tk aap bhi maante ho”
+      </p>
+    </div>
+
+    <div class="highlight-comfort">
+      “lekin aap par kisi bhi answer ka pressure nahi hai.<br>
+      Jo bhi aap honestly feel karti hain… wahi kehna. ❤️”
+    </div>
+
+    <div class="btn-wrap">
+      <a href="Part6.html" class="btn-next">ONE LAST THING →</a>
+    </div>
+  </div>
+
+</body>
+</html>
